@@ -59,10 +59,10 @@ def radar_factory(num_vars, frame='circle'):
             # The Axes patch must be centered at (0.5, 0.5) and of radius 0.5
             # in axes coordinates.
             if frame == 'circle':
-                return Circle((0.5, 0.5), 0.5)
+                return Circle((0.5, 0.5), 0.1)
             elif frame == 'polygon':
                 return RegularPolygon((0.5, 0.5), num_vars,
-                                      radius=.5, edgecolor="k")
+                                      radius=0.5, edgecolor="k")
             else:
                 raise ValueError("unknown value for 'frame': %s" % frame)
 
@@ -85,7 +85,7 @@ def radar_factory(num_vars, frame='circle'):
                 # unit_regular_polygon gives a polygon of radius 1 centered at
                 # (0, 0) but we want a polygon of radius 0.5 centered at (0.5,
                 # 0.5) in axes coordinates.
-                spine.set_transform(Affine2D().scale(.5).translate(.5, .5)
+                spine.set_transform(Affine2D().scale(0.5).translate(.5, .5)
                                     + self.transAxes)
 
                 return {'polar': spine}
@@ -96,12 +96,11 @@ def radar_factory(num_vars, frame='circle'):
     return theta
 
 
-data = [['Sulfate', 'Nitrate', 'EC', 'OC1'],
+data = [['NEU/CD3', 'NEU/LYMF', 'NEU/CD8', 'NEU/CD4'],
         ('Title', [
-            [0.88, 0.01, 0.03, 0.03],
-            [0.07, 0.95, 0.04, 0.05],
-            [0.01, 0.02, 0.85, 0.19],
-            [0.02, 0.01, 0.07, 0.01],
+            [1.85, 1.14, 0.74, 2.87],
+            [3.00, 2.25, 1.67, 9.47],
+            [5.00, 3.63, 1.80, 12.30],
             ])]
 
 N = len(data[0])
@@ -110,15 +109,20 @@ theta = radar_factory(N, frame='polygon')
 spoke_labels = data.pop(0)
 title, case_data = data[0]
 
+# размер окна
 fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(projection='radar'))
+# расположение графика
 fig.subplots_adjust(top=0.85, bottom=0.05)
 
-ax.set_rgrids([0.2, 0.4, 0.6, 0.8])
+# расположение промежутков
+ax.set_rgrids([2, 4, 6, 8, 10, 12, 14])
+# position - расположение названия диаграммы
 ax.set_title(title,  position=(0.5, 1.1), ha='center')
 
 for d in case_data:
     line = ax.plot(theta, d)
-    ax.fill(theta, d,  alpha=0.25)
+    # заливка цветом
+    ax.fill(theta, d,  alpha=0.05)
 ax.set_varlabels(spoke_labels)
 
 plt.show()
