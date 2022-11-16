@@ -150,7 +150,7 @@ fig.update_layout(
 
 curr_datetime = datetime.now().strftime('%Y-%m-%d %H-%M-%S')
 
-path = '/Proga/Site/diagrams/'
+path = 'med_project_urfu/diagrams'
 filename = f'{curr_datetime} result.png'
 filename = os.path.join(path, filename)
 pio.write_image(fig, filename, width=1980, height=1080)
