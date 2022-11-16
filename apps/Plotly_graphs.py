@@ -1,5 +1,10 @@
+import os
+
+import plotly.io as pio
 import plotly.graph_objects as go
+from datetime import datetime
 from plotly.subplots import make_subplots
+
 
 categories_T = ['NEU/CD4', 'NEU/CD3', 'NEU/LYMF', 'NEU/CD8']
 categories_T = [*categories_T, categories_T[0]]
@@ -143,4 +148,10 @@ fig.update_layout(
     title_x=0.5
 )
 
-fig.show()
+curr_datetime = datetime.now().strftime('%Y-%m-%d %H-%M-%S')
+
+path = '/Proga/Site/diagrams/'
+filename = f'{curr_datetime} result.png'
+filename = os.path.join(path, filename)
+pio.write_image(fig, filename, width=1980, height=1080)
+
