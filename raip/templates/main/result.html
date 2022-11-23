@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+        Результат определения опухоли мозга
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %} 
+                <div class="sendForm">
+                    <form enctype="multipart/form-data" method="post" action="{% url 'main:predictImage' %}">
+                        {% csrf_token %}
+
+                        {% for field in form %}
+                            <label for="{{ field.id_for_label }}">
+                                {{ field.label }}
+                                {% if field.field.required %}
+                                    <span class="required text-danger">*</span>
+                                {% endif %}
+                            </label>
+                            <div>
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+                                        {{ field.help_text|safe }}
+                                    </small>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <input type="submit" value="Отправить"></p>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <section id="resultsection" class="resultsection">
+            <div class="container">
+                <h2 class="result-title">
+                    Ваши результаты
+                </h2>
+                <table class="tabl-result">
+                    <tr>
+                        <td style="border: 1px solid #000;">
+                            Время загрузки изображения
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            Имя пациента/ID
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            Процент
+                        </td>
+                    </tr>
+                    {% for result in results %}                
+                        <tr>
+                            <td style="border: 1px solid #000;">
+                                {{ result.pub_date }}
+                            </td>
+                            <td style="border: 1px solid #000;">
+                                {{ result.name_patient }}
+                            </td>
+                            <td style="border: 1px solid #000;">
+                                {{ result.result }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </section>
+    {% else %}
+        <section id="resultsection" class="resultsection">
+            <div class="container">
+                <h2 class="result-title">
+                    Результаты
+                </h2>
+                <table class="tabl-result">
+                    <tr>
+                        <td style="border: 1px solid #000;">
+                            Время загрузки изображения
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            Имя пациента/ID
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            Результат
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            Процент
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000;">
+                            10.02.22 17:56
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            Иванов П.М./45
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            {{ name_pred }}
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            {{ prec }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000;">
+                            11.02.22 11:52
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            Бобров С.В./17
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            {{ name_pred }}
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            {{ prec }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000;">
+                            12.02.22 10:12
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            Стрельцов А.К./39
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            {{ name_pred }}
+                        </td>
+                        <td style="border: 1px solid #000;">
+                            {{ prec }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

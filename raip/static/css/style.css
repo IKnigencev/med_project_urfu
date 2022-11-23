@@ -1,0 +1,341 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: Andale Mono, monospace;
+    width: 100%;
+    background-color: #fff;
+    font-size: 20px;
+}
+
+.container {
+    width: 1140px;
+    margin: 0 auto;
+    display: block;
+}
+
+#head {
+    width: 100%;
+    height: 800px;
+    padding-bottom: 30px;
+    background: url(../img/background2.png) center / cover no-repeat;
+}
+
+#headResult {
+    width: 100%;
+    padding-bottom: 10px;
+    background: #ffffff;
+}
+
+.logo {
+    margin: auto auto;
+    height: 50px;
+    width: 50px;
+}
+
+.lg {
+    width: 100%;
+    height: 100%;
+}
+
+.menu {
+    background-color: #C4C4C4;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation {
+    font-size: 17px;
+    width: 60%;
+    margin: auto 0;
+}
+
+.navigation-list {
+    list-style-type: none;
+    float: right;
+}
+
+.navigation-list_item {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.link {
+    color: #000;
+}
+
+.short_description {
+    float: left;
+    margin: 50px 0px 0px 0px;
+}
+
+.title {
+    margin: 0px 0px 220px 0px;
+}
+
+.titleSecond {
+    margin: 0px 0px 50px 0px;
+    font-weight: 400;
+}
+
+#iinput {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0px 2px 0px;
+    border-radius: 30px
+}
+
+.line {
+    border-bottom: 1px solid rgb(76, 0, 255);
+}
+
+#about {
+    padding-bottom: 30px;
+}
+
+.about-title {
+    margin: 10px 0px 10px 10px;
+    font-size: 35px;
+}
+
+.about-description {
+    font-size: 20px;
+    padding: 20px;
+}
+
+#howWork {
+    padding-bottom: 30px;
+}
+
+.howWork-title {
+    margin: 10px 0px 10px 10px;
+    font-size: 35px;
+}
+
+.howWork-description {
+    font-size: 20px;
+    padding: 20px
+}
+
+#footer {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    background-color: #5a5a5a83;
+}
+
+.end {
+    width: 100%;
+    height: 150px;
+}
+
+.footer-leftside {
+    margin-left: 17%;
+    float: left;
+}
+
+.footer-rightside {
+    margin-right: 25%;
+    float: right;
+}
+
+.list-author {
+    font-size: 15px;
+    width: 310px;
+    height: 150px;
+    display: block;
+    margin: auto;
+    list-style-type: none;
+}
+
+.author {
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
+}
+
+.icon-contacts {
+    height: 10px;
+    width: 10px;
+}
+
+.mail-help{
+    margin: 10px;
+    text-align: left;
+    list-style-type: none;
+}
+
+.form-conection {
+    padding: 0;
+    margin: auto;
+    list-style-type: none;
+}
+
+.form-conection-img {
+    margin: 5px;
+    display: inline-block;
+}
+
+.img-form {
+    width: 50px;
+    height: 35px;
+}
+
+.right {
+    font-size: 10px;
+    text-align: center;
+}
+
+.sendForm {
+    width:300px;
+    margin: 50px auto 0px auto;
+}
+
+.form-description {
+    font-size: 20px;
+}
+
+.instruction-title {
+    text-align: center;
+}
+
+.instruction-descrition {
+    display: block;
+    width: 500px;
+    margin: auto;
+}
+
+#resultsection {
+    padding-bottom: 30px;
+}
+
+.result-title {
+    text-align: center;
+}
+
+.tabl-result {
+    margin: auto;
+    border-collapse: collapse;
+    border: 2px solid #000;
+}
+
+td, th {
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+@media (min-width: 0px) and (max-width: 576px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    #head{
+        background: url(../img/background2.png) no-repeat;
+        background-size: cover;
+        height: 900px;
+    }
+
+    .title {
+        margin: 0px 0px 210px 0px;
+    }
+
+    .navigation {
+        font-size: 13px;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0px;
+        padding: 0px 10px 0px 10px;
+        display: block;
+    }
+    .list-author {
+        font-size: 10px;
+        width: 210px;
+        height: 130px;
+    }
+    .footer-leftside {
+        margin-left: 0px;
+    }
+
+    .footer-rightside {
+        width: 120px;
+        margin-right: 0px;
+    }
+    .img-form {
+        width: 30px;
+        height: 20px;
+    }
+    .mail-help{
+        font-size: 10px;
+    }
+    .instruction-descrition {
+        width: 300px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px){
+    .container {
+        width: 540px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+@media (min-width: 768px) and (max-width:991px) {
+    .container {
+        width: 720px;
+        margin: 0 auto;
+        display: block;
+    }
+    #head{
+        height: 850px;
+    }
+    .footer-leftside {
+        margin-left: 5%;
+    }
+
+    .footer-rightside {
+        margin-right: 15%;
+    }
+}
+
+@media (min-width: 992px) and (max-width:1200px) {
+    .container {
+        width: 960px;
+        margin: 0 auto;
+        display: block;
+    }
+    .footer-leftside {
+        margin-left: 15%;
+    }
+
+    .footer-rightside {
+        margin-right: 20%;
+    }
+    #head{
+        height: 850px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+        margin: 0 auto;
+        display: block;
+    }
+}

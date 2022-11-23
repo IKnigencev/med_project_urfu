@@ -1,0 +1,44 @@
+{% load static %}
+
+<div class="menu">
+    <div class="logo">
+        <a href="{% url 'main:index' %}">
+            <img src="{% static 'img/logo.png' %}" alt="logo" class="lg">
+        </a>
+    </div>
+    <nav class="navigation">
+        <ul class="navigation-list">
+            <li class="navigation-list_item">
+                <a href="#footer" class="link">
+                    Контакты
+                </a>
+            </li>
+            <li class="navigation-list_item">
+                <a href="#about" class="link">
+                    О проекте
+                </a>
+            </li>
+            <li class="navigation-list_item">
+                <a href="#howWork" class="link">
+                    Принцип работы
+                </a>
+            </li>
+            {% if request.user.is_authenticated %}
+                <li class="navigation-list_item">
+                    <a href="{% url 'main:create' %}" class="link">Создать пациента</a>
+                </li>
+                <li class="navigation-list_item">
+                    <a href="{% url 'main:all' %}" class="link">Список пациентов</a>
+                </li>
+                <li class="navigation-list_item">
+                    <a href="" class="link">{{user.username}}</a> | <a href="{% url 'users:logout' %}" class="link">Выйти</a>
+                </li>
+            {% else %}
+                <li class="navigation-list_item">
+                    <a href="{% url 'users:signup' %}" class="link">Регистрация</a> | <a href="{% url 'users:login' %}" class="link">Войти</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Спиок пациентов
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <table>
+            <tr>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.age }}</td>
+                <td>{{ patient.created }}</td>
+                <td>{{ patient.patient_res.result_vkr }}</td>
+                <td><a href="{% url 'main:predictImage' %}">Добавить результаты нейронной сети</a></td>
+                <td><a href="{% url 'main:create_vkr' patient.name %}">Добавить результаты vkr</a></td>
+            </tr>
+        </table>
+
+        {% for res in res_vkr %}
+            <p{{ res.patient.created }}></p>
+            <p>{{ res.result_vkr }}</p>
+            <a href="{% url 'main:update_vkr' patient.name res.id %}">Редактировать результаты vkr</a>
+        {% endfor %}
+    </div>
+{% endblock %}

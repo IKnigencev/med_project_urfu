@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Определение опухоли мозга.
+{% endblock %}
+
+{% block content %}
+    <div id="head" class="'head">
+        <div class="container">
+            <div class="short_description">
+                <h1 class="title">
+                        Распознавание снимков МРТ <br>
+                        на наичие опухолей <br>
+                        головного мозга
+                </h1>
+                <h2 class="titleSecond">
+                        Нейросеть распознает <br>
+                        загруженное изображение и <br>
+                        определяет наличие <br>
+                        опухоли на снимке
+                </h2>
+                <a href="{% url 'main:predictImage' %}" id="iinput" class="iinput">
+                    Загрузка изображений
+                </a>
+            </div>
+        </div>
+    </div>
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="about-title">
+                О проекте
+            </h2>
+            <div class="line"></div>
+            <p class="about-description">
+                RAIP (Russian Artificial Intelligence Project) of MRI Brain Tumor Detection - проект,
+                стремящийся повысить точность в определении опухолей головного мозга на снимках МРТ с помощью технологии сверточных нейронных сетей.
+            </p>
+        </div>
+    </section>
+    <section id="howWork" class="howWork">
+        <div class="container">
+            <h2 class="howWork-title">
+                Принцип работы
+            </h2>
+            <div class="line"></div>
+            <p class="howWork-description">
+                Загруженное изображение отправляется на сервер, и там проходит через обработку скрытыми слоями нейронной сети,<br>
+                которая была обучена на датасете снимков МРТ головного мозга. <br>
+                Нейросеть в процентной вероятности определяет наличие на снимке опухоли головного мозга. <br>
+                После чего результат обработки отправляется назад, и выводится на сайте в блоке “Результаты”.
+            </p>
+        </div>
+    </section>
+{% endblock %}
