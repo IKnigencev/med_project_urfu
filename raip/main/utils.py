@@ -6,7 +6,7 @@ import numpy as np
 img_height, img_width = 64, 64
 
 
-model = load_model('./models/models_M.h5')
+# model = load_model('./models/models_M.h5')
 
 
 def get_predict_on_image(testImage: str):
